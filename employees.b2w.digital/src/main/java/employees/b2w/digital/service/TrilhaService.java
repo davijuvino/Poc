@@ -18,62 +18,63 @@ import employees.b2w.digital.repository.TrilhaRepository;
 
 @Service
 public class TrilhaService {
-	
+
 	@Autowired
 	private TrilhaRepository trilhaRepository;
-	
+
 	@Autowired
 	private ModelMapper mapper;
-	
-	public TrilhaService(TrilhaRepository trilhaRepository, ModelMapper mapper) {
+
+	public TrilhaService(TrilhaRepository trilhaRepository,
+			ModelMapper mapper) {
 		this.trilhaRepository = trilhaRepository;
 		this.mapper = mapper;
 	}
 
 	public List<TrilhaModel> getAll() {
 		List<Trilha> trilhas = trilhaRepository.findAll();
-        return trilhas.stream().map(this::convertToDto).collect(Collectors.toList());
-    }
-	
+		return trilhas.stream().map(this::convertToDto)
+				.collect(Collectors.toList());
+	}
+
 	public List<Trilha> getAllByCargos() {
 		return trilhaRepository.findAll();
 
-    }
-	
+	}
+
 	public Page<Trilha> getAllPage(Pageable pageable) {
 		return trilhaRepository.findAll(pageable);
 	}
-	
+
 	public TrilhaModel getById(Integer Id) {
 		Trilha savedTrilha = findByIdOrThrowBadRequestException(Id);
 		return convertToDto(savedTrilha);
 	}
 
 	@Transactional
-    public Trilha save(Trilha Trilha) {
-        return trilhaRepository.save(Trilha);
-    }
-	
+	public Trilha save(Trilha Trilha) {
+		return trilhaRepository.save(Trilha);
+	}
+
 	public void update(Integer Id, Trilha trilha) {
 		Trilha savedTrilha = findByIdOrThrowBadRequestException(Id);
 		trilha.setId(savedTrilha.getId());
-        trilha.setCargos(trilha.getCargos());
-        trilhaRepository.save(trilha);
-    }
-	
+		trilha.setCargos(trilha.getCargos());
+		trilhaRepository.save(trilha);
+	}
+
 	public Trilha findByIdOrThrowBadRequestException(Integer id) {
-        return trilhaRepository.findById(id)
-                .orElseThrow(() -> new BadRequestException("Trilha not Found"));
-    }
-	
+		return trilhaRepository.findById(id)
+				.orElseThrow(() -> new BadRequestException("Trilha not Found"));
+	}
+
 	public void delete(Integer id) {
 		trilhaRepository.delete(findByIdOrThrowBadRequestException(id));
-    }
-	
-	
+	}
+
 	private TrilhaModel convertToDto(Trilha trilha) {
 		TrilhaModel trilhaModel = mapper.map(trilha, TrilhaModel.class);
-	    return trilhaModel;
-	}	
+		return trilhaModel;
+	}
 
 }

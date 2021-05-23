@@ -18,58 +18,59 @@ import employees.b2w.digital.repository.CargoRepository;
 public class CargoService {
 
 	@Autowired
-    private CargoRepository cargoRepository;
+	private CargoRepository cargoRepository;
 	@Autowired
 	private TrilhaService trilhaService;
 
-	public CargoService(CargoRepository cargoRepository, TrilhaService trilhaService) {
+	public CargoService(CargoRepository cargoRepository,
+			TrilhaService trilhaService) {
 		this.cargoRepository = cargoRepository;
 		this.trilhaService = trilhaService;
 	}
 
 	public List<Cargo> getAll() {
-        return cargoRepository.findAll();
-    }
-	
+		return cargoRepository.findAll();
+	}
+
 	public Page<Cargo> getAllPage(Pageable pageable) {
 		return cargoRepository.findAll(pageable);
 	}
-	
+
 	public Cargo getById(Integer Id) {
 		Cargo savedCargo = findByIdCargoOrThrowBadRequestException(Id);
 		return savedCargo;
 	}
 
 	@Transactional
-    public Cargo save(Integer trilhaId, Cargo cargo) {
-		TrilhaModel savedTrilha = findByIdTrilhaOrThrowBadRequestException(trilhaId);
+	public Cargo save(Integer trilhaId, Cargo cargo) {
+		TrilhaModel savedTrilha = findByIdTrilhaOrThrowBadRequestException(
+				trilhaId);
 		cargo.setTrilhaId(trilhaId);
-        return cargoRepository.save(cargo);
-    }
-	
+		return cargoRepository.save(cargo);
+	}
+
 	public void update(Integer Id, Cargo cargo) {
 		Cargo savedCargo = findByIdCargoOrThrowBadRequestException(Id);
 		cargo.setId(savedCargo.getId());
 		cargo.setTrilhaId(savedCargo.getTrilha().getId());
-        cargoRepository.save(cargo);
-    }
-	
+		cargoRepository.save(cargo);
+	}
+
 	public Cargo findByIdCargoOrThrowBadRequestException(Integer id) {
-        return cargoRepository.findById(id)
-                .orElseThrow(() -> new BadRequestException("Cargo not Found"));
-    }
-	
+		return cargoRepository.findById(id)
+				.orElseThrow(() -> new BadRequestException("Cargo not Found"));
+	}
+
 	public TrilhaModel findByIdTrilhaOrThrowBadRequestException(Integer id) {
-        TrilhaModel trilha = trilhaService.getById(id);
-        if(trilha.getId() == null) {
-        	throw new BadRequestException("Trilha not Found");
-        }
-       return trilha;
-    }
-	
+		TrilhaModel trilha = trilhaService.getById(id);
+		if (trilha.getId() == null) {
+			throw new BadRequestException("Trilha not Found");
+		}
+		return trilha;
+	}
+
 	public void delete(Integer id) {
 		cargoRepository.delete(findByIdCargoOrThrowBadRequestException(id));
-    }
-	
-	
+	}
+
 }

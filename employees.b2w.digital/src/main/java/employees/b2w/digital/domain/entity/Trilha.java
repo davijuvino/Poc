@@ -16,41 +16,39 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Trilha implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@NotNull
 	@Size(max = 35)
 	private String trilha_nome;
-	
+
 	@NotNull
 	@Size(max = 30)
 	private String diretoria;
-	
+
 	@NotNull
 	@Size(max = 270)
 	private String missao_formal;
-	
+
 	@NotNull
 	@Size(max = 126)
-	private String missao_alternativa;	
-	
-	
+	private String missao_alternativa;
+
 	@OneToMany(mappedBy = "trilha", cascade = CascadeType.ALL)
 	private Collection<Cargo> cargos = new ArrayList<>();
 
-	
 	@Column
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date data_atualizacao;
-	 
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date data_atualizacao;
+
 	public Trilha() {
-	
+
 	}
-	
+
 	public Trilha(Integer id) {
 		this.id = id;
 	}
@@ -80,7 +78,7 @@ public class Trilha implements Serializable {
 	public String getTrilha_nome() {
 		return trilha_nome;
 	}
-	
+
 	public String getDiretoria() {
 		return diretoria;
 	}
@@ -115,11 +113,11 @@ public class Trilha implements Serializable {
 
 	public void setCargos(Collection<Cargo> cargos) {
 		this.cargos = cargos;
-		for(Cargo c : cargos) {
-            c.setTrilha(this);
-        }
+		for (Cargo c : cargos) {
+			c.setTrilha(this);
+		}
 	}
-	
+
 	public Date getData_atualizacao() {
 		return data_atualizacao;
 	}
@@ -128,7 +126,4 @@ public class Trilha implements Serializable {
 		this.data_atualizacao = data_atualizacao;
 	}
 
-
-	
 }
-

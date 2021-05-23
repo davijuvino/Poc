@@ -18,12 +18,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * @author Davi
- * @apiNote  table implements cargo do employees
+ * @apiNote table implements cargo do employees
  */
 @Entity
 @Table(name = "cargo", indexes = {
-		@Index(name = "trilha_id", columnList = "trilha_id")
-})
+		@Index(name = "trilha_id", columnList = "trilha_id")})
 public class Cargo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,11 +34,11 @@ public class Cargo implements Serializable {
 	@NotNull
 	@Size(max = 53)
 	private String cargo_nome;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "trilha_id")
-	@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-	@JsonIdentityReference(alwaysAsId=true)
+	@JoinColumn(name = "trilha_id")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+	@JsonIdentityReference(alwaysAsId = true)
 	@JsonProperty(value = "trilha_id")
 	@Schema(required = false)
 	private Trilha trilha;
@@ -47,11 +46,11 @@ public class Cargo implements Serializable {
 	@NotNull
 	@Size(max = 492)
 	private String cargo_missao;
-	
+
 	@Column
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date data_atualizacao;
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date data_atualizacao;
 
 	public Integer getId() {
 		return id;
@@ -97,8 +96,8 @@ public class Cargo implements Serializable {
 	 * @author Davi
 	 * @param trilhaId
 	 * 
-	 * Method include Id by cargo saved
-	 * public Cargo setTrilhaId(Integer trilhaId)
+	 *            Method include Id by cargo saved public Cargo
+	 *            setTrilhaId(Integer trilhaId)
 	 * @return now object with value updated
 	 */
 	public Cargo setTrilhaId(Integer trilhaId) {
@@ -106,5 +105,4 @@ public class Cargo implements Serializable {
 		return this;
 	}
 
-	
 }
