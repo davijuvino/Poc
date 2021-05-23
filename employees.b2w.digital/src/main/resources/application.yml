@@ -1,0 +1,17 @@
+server:
+  error:
+    include-stacktrace: on_param
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/employees?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+    username: root
+    password: '@#aAndreia32'
+
+
+
+ 
