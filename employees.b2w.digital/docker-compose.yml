@@ -1,13 +1,47 @@
-version: '3'
+version: '2.4'
+
+x-database-variables: &database-variables
+    SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/employees?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+    SPRING_DATASOURCE_USERNAME: root
+    SPRING_DATASOURCE_PASSWORD: root
 
 services:
-    mysql:
-        image: mysql:5.7
-        restart: always
-        container_name: mysql
-        environment:
-            MYSQL_ROOT_PASSWORD: root
-        ports:
-            - "3306:3306"
-        volumes:
-            - ./data/sql:/docker-entrypoint-initdb.d            
+    db:
+      image: mysql:5.7
+      restart: always
+      container_name: mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./data/sql:/docker-entrypoint-initdb.d
+      mem_limit: 512m
+
+    # prometheus:
+    #   image: prom/prometheus:latest
+    #   container_name: prometheus
+    #   volumes:
+    #     - "./src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml"
+    #   command: "--config.file=/etc/prometheus/prometheus.yml"
+    #   ports:
+    #     - "9090:9090"
+    #   mem_limit: 128m
+
+    # grafana:
+    #   image: grafana/grafana:latest
+    #   container_name: grafana
+    #   ports:
+    #     - "3000:3000"
+    #   mem_limit: 128m
+
+    springboot-b2w:
+      image: davijuvino/springboot-b2w:0.0.1-SNAPSHOT
+      container_name: springboot
+      ports:
+        - "8080:8080"
+      environment:
+        <<: *database-variables
+      mem_limit: 512m 
+      depends_on:
+        - db           
