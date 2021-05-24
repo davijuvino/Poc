@@ -34,7 +34,7 @@
 - mockito junit 5
 
 # Como executar o projeto
-
+![Base 1](https://github.com/davijuvino/digital/blob/main/assets/docker.png)
 ## Docker-compose
 Pré-requisitos: Java 11 /Docker /Docker-compose
 
