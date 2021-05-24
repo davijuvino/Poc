@@ -20,7 +20,7 @@ services:
 
 
     springboot-b2w:
-      image: davijuvino/springboot-b2w:0.0.1-SNAPSHOT
+      image: davijuvino/springboot-b2w:0.0.2-SNAPSHOT
       container_name: springboot
       ports:
       - "8080:8080"
