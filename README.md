@@ -57,7 +57,10 @@ docker system prune -a
 
 ## Documentacao OPENAPI
 ![Doc 1](https://github.com/davijuvino/digital/blob/main/assets/OpenApi.png)
-
+```bash
+Documentação oficial: https://swagger.io/solutions/getting-started-with-oas/
+Projeto: http://localhost:8080/swagger-ui.html
+```
 ## Containerizing images no DockerHub
 ![Docker 1](https://github.com/davijuvino/digital/blob/main/assets/dockerhub.png)
 ## Imagem no repository dockerhub
