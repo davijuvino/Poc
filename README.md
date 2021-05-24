@@ -35,7 +35,7 @@ docker-compose up -d
 ![Doc 1](https://github.com/davijuvino/digital/blob/main/assets/OpenApi.png)
 
 ## Containerizing images no DockerHub
-https://github.com/davijuvino/digital/blob/main/assets/dockerhub.png
+![Docker 1](https://github.com/davijuvino/digital/blob/main/assets/dockerhub.png)
 ## Imagem no repository dockerhub
 - Comando para realizar o pull da imagem
 - docker pull davijuvino/springboot-b2w
