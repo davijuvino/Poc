@@ -11,10 +11,10 @@ Pré-requisitos: Java 11 /Docker /Docker-compose
 
 ```bash
 # clonar repositório
-git clone https://github.com/davijuvino/digital
+git clone https://github.com/davijuvino/digital.git
 
-# entrar na pasta do projeto back end
-cd backend
+# entrar na pasta do projeto api
+cd employees.b2w.digital
 
 # executar o projeto
 docker-compose up -d
