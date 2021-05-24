@@ -52,7 +52,7 @@ docker pull davijuvino/springboot-b2w
 ## Postman executando dos endponits
 ![Postman](https://github.com/davijuvino/digital/blob/main/assets/postman_api.jpg)
 ```bash
-# Exemplo
+# Exemplo Table Trilha
 ```
 ```bash
 # Table Trilha Post - http://localhost:8080/api/v1/trilhas
@@ -70,9 +70,18 @@ docker pull davijuvino/springboot-b2w
         ],
     "data_atualizacao": "2020-05-11 20:03:53"   
 }
-
 ```
-
+```bash
+# Exemplo Table Cargo
+```
+```bash
+# Table Cargo Post - http://localhost:8080/api/v1/cargos/36
+{
+    "cargo_nome": "Analista Cloud Senior 5",
+    "cargo_missao": "Atuar naimplantação e manutenção de sistemas gerando logicamente as\naplicações informatizadas, apoiando a concepção, estabelecendo o fluxo e os procedimentos.",
+    "data_atualizacao": "2020-05-11 17:03:53"
+}
+```
 
 
 
