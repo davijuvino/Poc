@@ -112,3 +112,6 @@ docker pull davijuvino/springboot-b2w
  ![Test](https://github.com/davijuvino/digital/blob/main/assets/Tests.png)
 
 
+## 📝 Licença
+
+Este projeto esta sobe a licença [MIT](./LICENSE).
