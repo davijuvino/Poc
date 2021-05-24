@@ -44,15 +44,44 @@ docker-compose up -d
 docker pull davijuvino/springboot-b2w
 ```
 ## Containerizing Java Applications with Jib
-![Jib 1](https://github.com/davijuvino/digital/blob/main/assets/jib.png)
+![Jib 1](https://github.com/davijuvino/digital/blob/main/assets/jib_container.png)
 ```bash
 # Containerizing em segundos
 
 ```
-## Postman execução dos endponit
-![Postman](![image](https://user-images.githubusercontent.com/84661631/119350605-edb21a80-bc75-11eb-88de-41fee95ad1a0.png))
-
-
+## Postman executando dos endponits
+![Postman](https://github.com/davijuvino/digital/blob/main/assets/postman_api.jpg)
+```bash
+# Exemplo Table Trilha
+```
+```bash
+# Table Trilha Post - http://localhost:8080/api/v1/trilhas
+{
+    "trilha_nome":"Projetos",
+    "diretoria":"TI",
+    "missao_formal":"Implantacao digital",
+    "missao_alternativa":"Analisar implantar e definir soluções",
+    "cargos": [
+                {  
+                    "cargo_nome": "Analista de Implantacao I",
+                    "cargo_missao": "Analisar e implantar novas soluções",
+                    "data_atualizacao": "2021-05-01 20:35:02"
+                }
+        ],
+    "data_atualizacao": "2020-05-11 20:03:53"   
+}
+```
+```bash
+# Exemplo Table Cargo
+```
+```bash
+# Table Cargo Post - http://localhost:8080/api/v1/cargos/36
+{
+    "cargo_nome": "Analista Cloud Senior 5",
+    "cargo_missao": "Atuar naimplantação e manutenção de sistemas gerando logicamente as\naplicações informatizadas, apoiando a concepção, estabelecendo o fluxo e os procedimentos.",
+    "data_atualizacao": "2020-05-11 17:03:53"
+}
+```
 
 
 
