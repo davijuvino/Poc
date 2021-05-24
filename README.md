@@ -30,6 +30,12 @@ cd employees.b2w.digital
 
 # executar o projeto
 docker-compose up -d
+
+# parar e remover projeto
+docker-compose down -v
+
+# deletar e remover projeto
+docker system prune -a
 ```
 
 ## Documentacao OPENAPI
