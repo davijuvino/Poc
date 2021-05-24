@@ -1,6 +1,4 @@
-# Restful APIs Employees B2W
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/devsuperior/sds1-wmazoni/blob/master/LICENSE) 
-
+# Restful APIs Employees B2W 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/tgmarinho/README-ecoleta?color=%2304D361">
 
@@ -113,5 +111,5 @@ docker pull davijuvino/springboot-b2w
 
 
 ## 📝 Licença
-
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/devsuperior/sds1-wmazoni/blob/master/LICENSE)
 Este projeto esta sobe a licença [MIT](./LICENSE).
