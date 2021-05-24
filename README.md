@@ -14,6 +14,7 @@
 - Containerizing Java Applications with Jib
 - Docker
 - OpenAPI Specification
+- mockito junit 5
 
 # Como executar o projeto
 
@@ -44,6 +45,14 @@ docker pull davijuvino/springboot-b2w
 ```
 ## Containerizing Java Applications with Jib
 ![Jib 1](https://github.com/davijuvino/digital/blob/main/assets/jib.png)
+```bash
+# Containerizing em segundos
+
+```
+## Postman execução dos endponit
+![Postman](![image](https://user-images.githubusercontent.com/84661631/119350605-edb21a80-bc75-11eb-88de-41fee95ad1a0.png))
+
+
 
 
 
