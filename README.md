@@ -52,7 +52,24 @@ docker pull davijuvino/springboot-b2w
 ## Postman executando dos endponits
 ![Postman](https://github.com/davijuvino/digital/blob/main/assets/postman_api.jpg)
 ```bash
-# Containerizing em segundos
+# Exemplo
+```
+```bash
+# Table Trilha Post - http://localhost:8080/api/v1/trilhas
+{
+    "trilha_nome":"Projetos",
+    "diretoria":"TI",
+    "missao_formal":"Implantacao digital",
+    "missao_alternativa":"Analisar implantar e definir soluções",
+    "cargos": [
+                {  
+                    "cargo_nome": "Analista de Implantacao I",
+                    "cargo_missao": "Analisar e implantar novas soluções",
+                    "data_atualizacao": "2021-05-01 20:35:02"
+                }
+        ],
+    "data_atualizacao": "2020-05-11 20:03:53"   
+}
 
 ```
 
