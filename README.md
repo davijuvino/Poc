@@ -49,9 +49,12 @@ docker pull davijuvino/springboot-b2w
 # Containerizing em segundos
 
 ```
-## Postman execução dos endponit
+## Postman executando dos endponits
 ![Postman](https://github.com/davijuvino/digital/blob/main/assets/postman_api.jpg)
+```bash
+# Containerizing em segundos
 
+```
 
 
 
