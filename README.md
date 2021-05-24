@@ -31,7 +31,7 @@ cd employees.b2w.digital
 docker-compose up -d
 ```
 
-## Documentacao APIs
+## Documentacao OPENAPI
 ![Doc 1](https://github.com/davijuvino/digital/blob/main/assets/OpenApi.png)
 
 ## Containerizing images no DockerHub
@@ -42,6 +42,8 @@ docker-compose up -d
 # clonar repositório
 docker pull davijuvino/springboot-b2w
 ```
+## Containerizing Java Applications with Jib
+![Jib 1](https://github.com/davijuvino/digital/blob/main/assets/jib.png)
 
 
 
