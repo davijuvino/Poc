@@ -2,10 +2,10 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/devsuperior/sds1-wmazoni/blob/master/LICENSE) 
 
 # Diagrama da base de dados
-![Mobile 1](https://github.com/davijuvino/digital/blob/main/assets/diagrama_base.png)
+![Base 1](https://github.com/davijuvino/digital/blob/main/assets/diagrama_base.png)
 
 ## Tecnologias utilizadas
-### APIs
+## APIs
 - Java
 - Spring Boot
 - JPA / Hibernate
@@ -13,6 +13,7 @@
 - Mysql
 - Containerizing Java Applications with Jib
 - Docker
+- OpenAPI Specification
 
 # Como executar o projeto
 
@@ -31,3 +32,4 @@ docker-compose up -d
 ```
 
 ## Documentacao APIs
+![Doc 1](https://github.com/davijuvino/digital/blob/main/assets/OpenDoc.png)
