@@ -82,8 +82,7 @@ docker pull davijuvino/springboot-b2w
     "data_atualizacao": "2020-05-11 17:03:53"
 }
 ```
-## Tests com JUnit5
-![Junit](https://github.com/davijuvino/digital/blob/main/assets/junit_mockito.jpg)
+## Tests com JUnit5 e Mockito
 ## Source
  ![Test](https://github.com/davijuvino/digital/blob/main/assets/Tests.png)
 
