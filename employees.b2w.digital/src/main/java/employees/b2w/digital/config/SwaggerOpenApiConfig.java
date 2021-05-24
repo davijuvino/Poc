@@ -1,6 +1,5 @@
 package employees.b2w.digital.config;
 
-import org.springdoc.core.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,7 +19,7 @@ public class SwaggerOpenApiConfig {
 	              .version("v0.0.1")
 	              .license(new License().name("B2W Companhia Digital").url("https://ri.b2w.digital/")))
 	              .externalDocs(new ExternalDocumentation()
-	              .description("Esse documento tem como orientação da utilização da Api com base na aplicação (Os testes deverão ser realizado no POSTMAN uma forma efetiva) ")
+	              .description("Esse documento tem como orientação da utilização da APIs com base no diagrama informado de employees (Os testes deverão ser realizados no POSTMAN para sermos assertiva) no OPENAPI alguns parâmetros e campos são obrigatórios por isso não houve configurações para testes no OpenApi. ")
 	              .url("https://www.postman.com/"));
 	  }
 
