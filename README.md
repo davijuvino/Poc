@@ -32,4 +32,5 @@ docker-compose up -d
 ```
 
 ## Documentacao APIs
-![Doc 1](https://github.com/davijuvino/digital/blob/main/assets/OpenDoc.png)
+![Doc 1](https://github.com/davijuvino/digital/blob/main/assets/OpenApi.png)
+
