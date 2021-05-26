@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import employees.b2w.digital.domain.entity.Trilha;
-import employees.b2w.digital.domain.model.TrilhaModel;
+import employees.b2w.digital.domain.mapper.TrilhaMapper;
 import employees.b2w.digital.service.TrilhaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -51,7 +51,7 @@ public class TrilhaController {
 	                description = "Successful Operation",
 	                content = @Content(mediaType = "text/plain"))})
 	@Operation(summary = "lists all trilhas included in the database", description = "trilha the employees")
-    public ResponseEntity<List<TrilhaModel>> getAll() {
+    public ResponseEntity<List<TrilhaMapper>> getAll() {
         return ResponseEntity.ok(trilhaService.getAll());
     }
 	
@@ -87,9 +87,9 @@ public class TrilhaController {
 	                description = "Successful Operation",
 	                content = @Content(mediaType = "text/plain"))})
     @Operation(summary = "lists trilhas by id included in the database", description = "trilha the employees")
-    public ResponseEntity<TrilhaModel> getById(@PathVariable Integer id) {
-        TrilhaModel trilhaModel = trilhaService.getById(id);
-        return ResponseEntity.ok(trilhaModel);
+    public ResponseEntity<TrilhaMapper> getById(@PathVariable Integer id) {
+        TrilhaMapper trilhaMapper = trilhaService.getById(id);
+        return ResponseEntity.ok(trilhaMapper);
     }
     
     @PostMapping

@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import employees.b2w.digital.domain.entity.Cargo;
-import employees.b2w.digital.domain.model.TrilhaModel;
+import employees.b2w.digital.domain.mapper.TrilhaMapper;
 import employees.b2w.digital.exception.BadRequestException;
 import employees.b2w.digital.repository.CargoRepository;
 
@@ -43,7 +43,7 @@ public class CargoService {
 
 	@Transactional
 	public Cargo save(Integer trilhaId, Cargo cargo) {
-		TrilhaModel savedTrilha = findByIdTrilhaOrThrowBadRequestException(
+		TrilhaMapper savedTrilha = findByIdTrilhaOrThrowBadRequestException(
 				trilhaId);
 		cargo.setTrilhaId(trilhaId);
 		return cargoRepository.save(cargo);
@@ -61,8 +61,8 @@ public class CargoService {
 				.orElseThrow(() -> new BadRequestException("Cargo not Found"));
 	}
 
-	public TrilhaModel findByIdTrilhaOrThrowBadRequestException(Integer id) {
-		TrilhaModel trilha = trilhaService.getById(id);
+	public TrilhaMapper findByIdTrilhaOrThrowBadRequestException(Integer id) {
+		TrilhaMapper trilha = trilhaService.getById(id);
 		if (trilha.getId() == null) {
 			throw new BadRequestException("Trilha not Found");
 		}

@@ -16,7 +16,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import employees.b2w.digital.domain.entity.Trilha;
-import employees.b2w.digital.domain.model.TrilhaModel;
+import employees.b2w.digital.domain.mapper.TrilhaMapper;
 import employees.b2w.digital.service.TrilhaService;
 import employees.b2w.digital.util.TrilhaCreator;
 
@@ -41,13 +41,13 @@ public class TrilhaControllerTest {
 			.thenReturn(trilhaPage);
 		
 		BDDMockito.when(trilhaServiceMocks.getAll())
-		.thenReturn(List.of(TrilhaCreator.createValidTrilhaModel()));
+		.thenReturn(List.of(TrilhaCreator.createValidTrilhaMapper()));
 		
 		BDDMockito.when(trilhaServiceMocks.findByIdOrThrowBadRequestException(ArgumentMatchers.anyInt()))
 			.thenReturn(TrilhaCreator.createValidTrilha());
 		
 		BDDMockito.when(trilhaServiceMocks.getById(ArgumentMatchers.anyInt()))
-		.thenReturn(TrilhaCreator.createValidTrilhaModel());
+		.thenReturn(TrilhaCreator.createValidTrilhaMapper());
 		
 		BDDMockito.when(trilhaServiceMocks.save(ArgumentMatchers.any(Trilha.class)))
 			.thenReturn(TrilhaCreator.createValidTrilha());
@@ -80,7 +80,7 @@ public class TrilhaControllerTest {
 	void getAll_ReturnsListOfTrilhasInsidePageObject_WhenSuccessful() {
 		String expectedName = TrilhaCreator.createValidTrilha().getTrilha_nome();
 		
-		List<TrilhaModel> trilhas = trilhaController.getAll().getBody();
+		List<TrilhaMapper> trilhas = trilhaController.getAll().getBody();
 		
 		Assertions.assertThat(trilhas)
 			.isNotEmpty()
@@ -93,22 +93,21 @@ public class TrilhaControllerTest {
 	@Test
 	@DisplayName("findById return trilha when successuful")
 	void getById_ReturnsTrilhas_WhenSuccessful() {
-		Integer expectedId = TrilhaCreator.createValidTrilhaModel().getId();
+		Integer expectedId = TrilhaCreator.createValidTrilhaMapper().getId();
 		
-		TrilhaModel trilhaModel = trilhaController.getById(1).getBody();
+		TrilhaMapper trilhaMapper = trilhaController.getById(1).getBody();
 		
-		Assertions.assertThat(trilhaModel).isNotNull();
-		Assertions.assertThat(trilhaModel.getId()).isNotNull().isEqualTo(expectedId);
+		Assertions.assertThat(trilhaMapper).isNotNull();
+		Assertions.assertThat(trilhaMapper.getId()).isNotNull().isEqualTo(expectedId);
 	}
 	
 		
-	  @Test
-	  @DisplayName("save return trilha when successuful")
-	  void create_ReturnsTrilha_WhenSuccessful() {
+	@Test
+	@DisplayName("save return trilha when successuful")
+	void create_ReturnsTrilha_WhenSuccessful() {
 	  
-	  Trilha trilha = trilhaController.create(TrilhaCreator.createValidTrilha()).getBody();
-	  
-	  Assertions.assertThat(trilha).isNotNull();
+	   Trilha trilha = trilhaController.create(TrilhaCreator.createValidTrilha()).getBody();
+	   Assertions.assertThat(trilha).isNotNull();
 	  
 	  }
   

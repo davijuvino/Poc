@@ -12,9 +12,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import employees.b2w.digital.domain.entity.Trilha;
-import employees.b2w.digital.domain.model.TrilhaModel;
+import employees.b2w.digital.domain.mapper.TrilhaMapper;
 import employees.b2w.digital.exception.BadRequestException;
 import employees.b2w.digital.repository.TrilhaRepository;
+
+/**
+ * @author Davi
+ *
+ */
 
 @Service
 public class TrilhaService {
@@ -30,23 +35,21 @@ public class TrilhaService {
 		this.trilhaRepository = trilhaRepository;
 		this.mapper = mapper;
 	}
-
-	public List<TrilhaModel> getAll() {
+	
+	public Page<Trilha> getAllPage(Pageable pageable) {
+		return trilhaRepository.findAll(pageable);
+	}
+	
+	public List<TrilhaMapper> getAll() {
 		List<Trilha> trilhas = trilhaRepository.findAll();
-		return trilhas.stream().map(this::convertToDto)
-				.collect(Collectors.toList());
+		return trilhas.stream().map(this::convertToDto).collect(Collectors.toList());
 	}
 
 	public List<Trilha> getAllByCargos() {
 		return trilhaRepository.findAll();
-
 	}
 
-	public Page<Trilha> getAllPage(Pageable pageable) {
-		return trilhaRepository.findAll(pageable);
-	}
-
-	public TrilhaModel getById(Integer Id) {
+	public TrilhaMapper getById(Integer Id) {
 		Trilha savedTrilha = findByIdOrThrowBadRequestException(Id);
 		return convertToDto(savedTrilha);
 	}
@@ -72,9 +75,14 @@ public class TrilhaService {
 		trilhaRepository.delete(findByIdOrThrowBadRequestException(id));
 	}
 
-	private TrilhaModel convertToDto(Trilha trilha) {
-		TrilhaModel trilhaModel = mapper.map(trilha, TrilhaModel.class);
-		return trilhaModel;
+	
+	/**
+	 * @param trilha
+	 * @return converte class mapper model 
+	 */
+	private TrilhaMapper convertToDto(Trilha trilha) {
+		TrilhaMapper trilhaMapper = mapper.map(trilha, TrilhaMapper.class);
+		return trilhaMapper;
 	}
 
 }

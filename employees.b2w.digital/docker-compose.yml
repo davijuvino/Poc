@@ -3,7 +3,7 @@ version: '2.4'
 x-database-variables: &database-variables
     SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/employees?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
     SPRING_DATASOURCE_USERNAME: root
-    SPRING_DATASOURCE_PASSWORD: root
+    SPRING_DATASOURCE_PASSWORD: '@#Andreia32'
 
 services:
     db:
