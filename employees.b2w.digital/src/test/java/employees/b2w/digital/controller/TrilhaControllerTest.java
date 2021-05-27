@@ -109,7 +109,25 @@ public class TrilhaControllerTest {
 	   Trilha trilha = trilhaController.create(TrilhaCreator.createValidTrilha()).getBody();
 	   Assertions.assertThat(trilha).isNotNull();
 	  
-	  }
+	}
+	
+	@Test
+	@DisplayName("update return trilha when successuful")
+	void update_ReturnsTrilha_WhenSuccessful() {
+			
+		Assertions.assertThatCode(() -> trilhaController.update(
+				TrilhaCreator.createValidTrilha().getId(),
+				TrilhaCreator.createValidUpdateTrilha()))
+		.doesNotThrowAnyException();
+	  
+	}
+	
+	@Test
+	@DisplayName("delete remove trilha when successuful")
+	void delete_RemoveTrilha_WhenSuccessful() {
+		
+		Assertions.assertThatCode(() -> trilhaController.delete(1)).doesNotThrowAnyException();
+	}
   
 }
 

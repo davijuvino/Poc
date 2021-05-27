@@ -19,6 +19,7 @@ public class CargoService {
 
 	@Autowired
 	private CargoRepository cargoRepository;
+	
 	@Autowired
 	private TrilhaService trilhaService;
 
@@ -43,8 +44,7 @@ public class CargoService {
 
 	@Transactional
 	public Cargo save(Integer trilhaId, Cargo cargo) {
-		TrilhaMapper savedTrilha = findByIdTrilhaOrThrowBadRequestException(
-				trilhaId);
+		TrilhaMapper savedTrilha = findByIdTrilhaOrThrowBadRequestException(trilhaId);
 		cargo.setTrilhaId(trilhaId);
 		return cargoRepository.save(cargo);
 	}
