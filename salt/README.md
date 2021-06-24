@@ -43,7 +43,7 @@ Pré-requisitos: Java 11 /Docker /Docker-compose
 git clone 
 
 # entrar na pasta do projeto api
-cd employees.b2w.digital
+cd 
 
 # executar o projeto
 docker-compose up -d
